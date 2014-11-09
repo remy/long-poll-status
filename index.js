@@ -6,7 +6,7 @@ var hbs = require('hbs');
 var crypto = require('crypto');
 
 hbs.registerHelper('random', function () {
-  return crypto.createHmac('sha1', 'demo').update(Math.random() + '').digest('hex').substr(0, 6);
+  return randomURL();
 });
 
 var app = express();
@@ -18,6 +18,9 @@ app.engine('html', require('hbs').__express);
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(serveStatic('public'));
 
+function randomURL() {
+  return crypto.createHmac('sha1', 'demo').update(Math.random() + '').digest('hex').substr(0, 6);
+}
 
 function random(url) {
   var t = 10 + (Math.random() * 20 | 0);
@@ -43,6 +46,10 @@ function random(url) {
 
   return result;
 }
+
+app.get('/random', function (req, res) {
+  res.redirect('/' + randomURL());
+});
 
 app.get('/*', function (req, res) {
   if (!req.xhr && !register[req.url]) {
