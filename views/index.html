@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf8">
+<meta name="viewport" content="width=device-width">
+<title>Long polling demo</title>
+<style>
+* {
+  font: 200 18px/1.2em 'helvetica neue', arial, helvetica;
+}
+
+html {
+  background: #efefef;
+  min-height: 100%;
+}
+
+strong {
+  font-weight: 400;
+}
+
+body {
+  width: 720px;
+  min-height: 100%;
+  background: white;
+  color: #212121;
+  margin: 0 auto;
+  padding: 30px 0;
+}
+
+p, h1, h2, ul {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  font-size: 38px;
+  list-style: 1.5em;
+}
+
+h2 {
+  font-size: 28px;
+  margin-top: 48px;
+}
+
+a {
+  color: blue;
+}
+
+em {
+  font-weight: 400;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 14px 0;
+}
+
+.footer {
+  padding: 40px 0;
+  background: #efefef;
+  margin: 0;
+  margin-top: 40px;
+  max-width: 100%;
+}
+
+.footer p {
+  text-align: left;
+}
+</style>
+</head>
+<body>
+<h1>Long task with feedback demo</h1>
+<ul>
+  <li><strong>URL:</strong> <span>{{url}}</span></li>
+{{#if timeLeft}}
+  <li><strong>Task time:</strong> <span>{{length}}</span></li>
+  <li><strong>Remaining:</strong> <progress id="timeLeft" min="0" max="{{length}}" value="{{timeLeft}}"></progress> <span id="timeLeftText">{{timeLeft}}</span>
+
+{{else}}
+  <li>This timer completed now. This URL won't run another time for a little while. Try <a href="/{{random}}">another</a>.</li>
+{{/if}}
+</ul>
+<script src="/get.js"></script>
+</body>
+
+
+
+
+
+
+

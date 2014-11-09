@@ -1,0 +1,18 @@
+{
+  "name": "long-poll-status",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Remy Sharp",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.10.1",
+    "hbs": "^2.7.0",
+    "serve-favicon": "^2.1.6",
+    "serve-static": "^1.7.1"
+  }
+}
